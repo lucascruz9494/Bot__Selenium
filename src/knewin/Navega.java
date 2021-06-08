@@ -13,11 +13,10 @@ public class Navega extends Inicia {
 
 			driver.findElement(By.xpath("/html/body/div[4]/div[4]/div/div/div[" + "" + pagnum + "" + "]/span/button"))
 					.click();
-
-			carrega = carrega + 1;
 			System.out.println();
 			System.out.println("Página "+""+carrega+""+" carregada");
 			System.out.println();
+			carrega = carrega + 1;
 		} catch (Exception e4) {
 			try {
 				String urlXpath = driver
@@ -27,6 +26,7 @@ public class Navega extends Inicia {
 				lista.add(urlXpath);
 				System.out.println("Noticia "+""+pagnum+""+" salva");
 				pagnum = pagnum + 1;
+				
 			} catch (Exception e5) {
 				carrega = 1;
 				pagnum = 1;
@@ -60,7 +60,7 @@ public class Navega extends Inicia {
 			Navega.Espera();
 			// Extrai o titulo
 
-			String tituloUm = driver.findElement(By.xpath(tituloXpath)).getText();
+			String tituloUm = driver.findElement(By.className(tituloXpath)).getText();
 			System.out.println("O titulo " + "" + numero + "" + " é : \n " + tituloUm);
 
 			System.out.println();
@@ -68,14 +68,14 @@ public class Navega extends Inicia {
 			Navega.Espera();
 			// Extrai o subtitulo
 
-			String subUm = driver.findElement(By.xpath(subXpath)).getText();
+			String subUm = driver.findElement(By.className(subXpath)).getText();
 			System.out.println("O subtitulo " + "" + numero + "" + " é : \n " + subUm);
 			System.out.println();
 			System.out.println();
 			Navega.Espera();
 			// Extrai o Autor
 
-			String autorUm = driver.findElement(By.xpath(autorXpath)).getText();
+			String autorUm = driver.findElement(By.className(autorXpath)).getText();
 			System.out.println("O autor da noticia " + "" + numero + "" + " é : \n " + autorUm);
 			System.out.println();
 			System.out.println();
@@ -118,8 +118,9 @@ public class Navega extends Inicia {
 			pagnum = pagnum + 1;
 
 		} catch (Exception e2) {
-			System.out.println("Elemento indisponível na página "+""+pagnum);
+			System.out.println("Elemento indisponível na página");
 			pagnum = pagnum +1;
+			numero = numero + 1;
 
 		}
 
