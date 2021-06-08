@@ -76,6 +76,7 @@ public class Navega extends Inicia {
 			// Extrai o Autor
 
 			String autorUm = driver.findElement(By.className(autorXpath)).getText();
+			autorUm = autorUm.substring(4, autorUm.length());
 			System.out.println("O autor da noticia " + "" + numero + "" + " é : \n " + autorUm);
 			System.out.println();
 			System.out.println();
