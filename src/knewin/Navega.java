@@ -13,7 +13,11 @@ public class Navega extends Inicia {
 
 			driver.findElement(By.xpath("/html/body/div[4]/div[4]/div/div/div[" + "" + pagnum + "" + "]/span/button"))
 					.click();
+
 			carrega = carrega + 1;
+			System.out.println();
+			System.out.println("Página "+""+carrega+""+" carregada");
+			System.out.println();
 		} catch (Exception e4) {
 			try {
 				String urlXpath = driver
