@@ -82,7 +82,7 @@ public class Navega extends Inicia {
 			Navega.Espera();
 			// Extrai a data
 
-			String dataUm = driver.findElement(By.xpath(dataXpath)).getAttribute("datetime");
+			String dataUm = driver.findElement(By.className(dataXpath)).getAttribute("datetime");
 			dataUm = dataUm.substring(0, dataUm.length() - 6) + "Z";
 
 			DateTimeFormatter originalFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
