@@ -18,7 +18,7 @@ public class Inicia {
 	protected static String subXpath = "article-lead";
 	protected static String autorXpath = "author-name";
 	protected static String conteudoXpath = "col-md-9";
-	protected static String dataXpath = "/html/body/div[4]/article/div[1]/div/div/div[2]/div[1]/div[2]/span[2]/span/time[1]";
+	protected static String dataXpath = "entry-date";
 	protected static Integer numero = 1;
 	public static WebDriver driver;
 
