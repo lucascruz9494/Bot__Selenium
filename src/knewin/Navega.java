@@ -98,12 +98,10 @@ public class Navega extends Inicia {
 			Navega.Espera();
 			// Extrai o conteúdo da noticia
 			try {
-				String conteudoUm = driver.findElement(By.xpath(conteudoXpath)).getText();
+				String conteudoUm = driver.findElement(By.className(conteudoXpath)).getText();
 				System.out.println("O conteúdo da noticia " + "" + numero + "" + " é : \n " + conteudoUm);
 
 			} catch (Exception e) {
-				String conteudoUm = driver.findElement(By.xpath(conteudoXpathDois)).getText();
-				System.out.println("O conteúdo da noticia " + "" + numero + "" + " é : \n " + conteudoUm);
 
 			}
 			Navega.Espera();
