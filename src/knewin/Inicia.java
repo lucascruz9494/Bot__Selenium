@@ -14,9 +14,9 @@ public class Inicia {
 	protected static Integer carrega = 1;
 	protected static Integer pagnum = 1;
 	protected static String urlXpath;
-	protected static String tituloXpath = "/html/body/div[4]/article/div[1]/div/div/h1";
-	protected static String subXpath = "/html/body/div[4]/article/div[1]/div/div/p";
-	protected static String autorXpath = "/html/body/div[4]/article/div[1]/div/div/div[2]/div[1]/div[2]/span[1]/a";
+	protected static String tituloXpath = "page-title-1";
+	protected static String subXpath = "article-lead";
+	protected static String autorXpath = "author-name";
 	protected static String conteudoXpath = "/html/body/div[4]/article/div[2]/div[2]";
 	protected static String conteudoXpathDois = "/html/body/div[4]/article/div[3]/div[2]";
 	protected static String dataXpath = "/html/body/div[4]/article/div[1]/div/div/div[2]/div[1]/div[2]/span[2]/span/time[1]";
