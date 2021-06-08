@@ -118,7 +118,8 @@ public class Navega extends Inicia {
 			pagnum = pagnum + 1;
 
 		} catch (Exception e2) {
-			System.out.println("Elemento indisponível");
+			System.out.println("Elemento indisponível na página "+""+pagnum);
+			pagnum = pagnum +1;
 
 		}
 
