@@ -52,7 +52,7 @@ public class Inicia {
 			req.Carrega();
 		}
 		pagnum = 0;
-		System.out.println("Links salvos, aguarde até que a extração das informações de todos os links seja concluída, pode demorar alguns minutos");
+		System.out.println("Links salvos, aguarde até que a extração das informações de todos os links \n seja concluída, pode demorar alguns minutos \n ");
 		
 		// irá criar um arquivo txt na pasta do projeto /Bot__Selenium,
 		// onde serão armazenados todas as informações que seriam impressas no console
