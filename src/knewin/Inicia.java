@@ -1,6 +1,7 @@
 package knewin;
 
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -27,46 +28,51 @@ public class Inicia {
 	public static WebDriver driver;
 
 	public static void main(String[] args) {
-		// irá criar um arquivo txt na pasta do projeto /Bot__Selenium,
-		// onde serão armazenados todas as informações que seriam impressas no console
-		File file = new File("out.txt");
-		PrintStream printStream = null;
-		try {
-			printStream = new PrintStream(new FileOutputStream(file));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		System.setOut(printStream);
+
+
 
 
 		Navega req = new Navega();
 
 		System.setProperty("webdriver.chrome.driver", ".\\libs\\chromedriver.exe");
 
-		Map<String, Object> prefs = new HashMap<String, Object>(); 			////////////////
-		prefs.put("profile.default_content_setting_values.cookies", 2); 		// Este	      //
-		prefs.put("network.cookie.cookieBehavior", 2); 					// bloco      //
-		prefs.put("profile.block_third_party_cookies", 1); 				// desabilita //
-		ChromeOptions options = new ChromeOptions(); 					// cookies    //
-		options.setExperimentalOption("prefs", prefs); 					////////////////
+		Map<String, Object> prefs = new HashMap<String, Object>(); ////////////////
+		prefs.put("profile.default_content_setting_values.cookies", 2); // Este //
+		prefs.put("network.cookie.cookieBehavior", 2); // bloco //
+		prefs.put("profile.block_third_party_cookies", 1); // desabilita //
+		ChromeOptions options = new ChromeOptions(); // cookies //
+		options.setExperimentalOption("prefs", prefs); ////////////////
 
 		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.get(url);
 		Navega.Espera();
 		while (carrega <= 3) {
-			
-			
+
 			req.Carrega();
 		}
-		pagnum=0;
+		pagnum = 0;
+		System.out.println("Links salvos, aguarde até que a extração das informações de todos os links seja concluída, pode demorar alguns minutos");
 		
-		
-		
-		while (pagnum<=lista.size()-1) {
-		req.Navegacao();
-		
+		// irá criar um arquivo txt na pasta do projeto /Bot__Selenium,
+		// onde serão armazenados todas as informações que seriam impressas no console
+		File file = new File("out.txt");
+		PrintStream printStream = null;
+
+		try {
+			printStream = new PrintStream(new FileOutputStream(file));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(printStream);
+		while (pagnum <= lista.size() - 1) {
+			req.Navegacao();
+
 		}
 		driver.quit();
+		PrintStream consoleStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
+		System.setOut(consoleStream);
+
+		System.out.println("Processo concluído, verificar arquivo out.txt na pasta \\Bot__Selenium");
 	}
 }
