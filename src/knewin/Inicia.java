@@ -48,7 +48,6 @@ public class Inicia {
 		driver.get(url);
 		Navega.Espera();
 		while (carrega < 4) {
-
 			req.Carrega();
 		}
 		
