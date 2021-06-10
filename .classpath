@@ -26,6 +26,6 @@
 	<classpathentry kind="lib" path=".//libs//resources.jar"/>
 
 	<classpathentry kind="lib" path=".//libs//jsse.jar"/>
-
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
