@@ -47,7 +47,7 @@ public class Inicia {
 		driver.manage().window().maximize();
 		driver.get(url);
 		Navega.Espera();
-		while (carrega < 3) {
+		while (carrega < 4) {
 
 			req.Carrega();
 		}
