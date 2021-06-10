@@ -10,7 +10,7 @@ public class Navega extends Inicia {
 
 	public void Carrega() {
 		try {
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			Navega.Espera();
 			driver.findElement(By.xpath("//button[contains(text(),'Carregar mais')]")).click();
 			System.out.println();
 			System.out.println("PÃ¡gina "+""+carrega+""+" carregada");
@@ -43,7 +43,7 @@ public class Navega extends Inicia {
 		}
 			catch(Exception e) {
 				
-				System.out.println("Erro ao salvar a página, será tentado novamente");
+				System.out.println("Erro ao salvar noticia "+""+pagnum+""+" , será tentado novamente");
 				carrega=carrega+1;
 				
 			}
