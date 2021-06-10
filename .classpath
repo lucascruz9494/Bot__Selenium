@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path=".//libs//jce.jar"/>
 	<classpathentry kind="lib" path=".//libs//jfr.jar"/>
 	<classpathentry kind="lib" path=".//libs//access-bridge-32.jar"/>
-	<classpathentry kind="lib" path=".//libs//dnsns.jar.jar"/>
+	<classpathentry kind="lib" path=".//libs//dnsns.jar"/>
 	<classpathentry kind="lib" path=".//libs//jaccess.jar"/>
 	<classpathentry kind="lib" path=".//libs//localedata.jar"/>
 	<classpathentry kind="lib" path=".//libs//nashorn.jar"/>
