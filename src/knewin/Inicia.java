@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Inicia {
 	protected static ArrayList<String> lista = new ArrayList<String>();
 	protected static String url = "https://www.infomoney.com.br/mercados/";
-	protected static Integer carrega = 1;
+	protected static Integer carrega = 2;
 	protected static Integer pagnum = 1;
 	protected static String urlXpath;
 	protected static String tituloXpath = "page-title-1";
@@ -47,15 +47,21 @@ public class Inicia {
 		driver.manage().window().maximize();
 		driver.get(url);
 		Navega.Espera();
-		while (carrega <= 3) {
+		while (carrega < 3) {
 
 			req.Carrega();
 		}
-		pagnum = 0;
-		System.out.println("Links salvos, aguarde até que a extração das informações de todos os links \n seja concluída, pode demorar alguns minutos \n ");
 		
-		// irá criar um arquivo txt na pasta do projeto /Bot__Selenium,
-		// onde serão armazenados todas as informações que seriam impressas no console
+		carrega=1;
+		while (carrega<3) {
+			req.Salva();
+		}
+		
+		pagnum = 0;
+		System.out.println("Links salvos, aguarde atÃ© que a extraÃ§Ã£o das informaÃ§Ãµes de todos os links \n seja concluÃ­da, pode demorar alguns minutos \n ");
+		
+		// irÃ¡ criar um arquivo txt na pasta do projeto /Bot__Selenium,
+		// onde serÃ£o armazenados todas as informaÃ§Ãµes que seriam impressas no console
 		File file = new File("out.txt");
 		PrintStream printStream = null;
 
@@ -73,6 +79,6 @@ public class Inicia {
 		PrintStream consoleStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
 		System.setOut(consoleStream);
 
-		System.out.println("Processo concluído, verificar arquivo out.txt na pasta \\Bot__Selenium");
+		System.out.println("Processo concluÃ­do, verificar arquivo out.txt na pasta \\Bot__Selenium");
 	}
 }
