@@ -10,36 +10,48 @@ public class Navega extends Inicia {
 
 	public void Carrega() {
 		try {
-
-			driver.findElement(By.xpath("/html/body/div[4]/div[4]/div/div/div[" + "" + pagnum + "" + "]/span/button"))
-					.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.findElement(By.xpath("//button[contains(text(),'Carregar mais')]")).click();
 			System.out.println();
-			System.out.println("Página "+""+carrega+""+" carregada");
+			System.out.println("PÃ¡gina "+""+carrega+""+" carregada");
 			System.out.println();
 			carrega = carrega + 1;
 		} catch (Exception e4) {
-			try {
-				String urlXpath = driver
-						.findElement(By.xpath(
-								"/html/body/div[4]/div[4]/div/div/div[" + "" + pagnum + "" + "]/div[2]/span[2]/a"))
-						.getAttribute("href");
-				lista.add(urlXpath);
-				System.out.println("Noticia "+""+pagnum+""+" salva");
-				pagnum = pagnum + 1;
-				
-			} catch (Exception e5) {
-				carrega = 1;
-				pagnum = 1;
-				lista.clear();
-				System.out.println("Erro ao encontrar link, processo será refeito do início");
-				driver.get(url);
-			}
-		}
 
+				
+		
+				
+			
+				
+				System.out.println("Erro ao encontrar botão, será tentado novamente");
+				
+			}
+	}
+	
+	public void Salva() {
+		
+		
+		try {
+			Navega.Espera();
+			String urlXpath = driver
+					.findElement(By.xpath(
+							"/html/body/div[4]/div[4]/div/div/div[" + "" + pagnum + "" + "]/div[2]/span[2]/a"))
+					.getAttribute("href");
+			lista.add(urlXpath);
+			System.out.println("Noticia "+""+pagnum+""+" salva");
+			pagnum = pagnum + 1;
+		}
+			catch(Exception e) {
+				
+				System.out.println("Erro ao salvar a página, será tentado novamente");
+				carrega=carrega+1;
+				
+			}
 	}
 
+
 	public static void Espera() {
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	public void Navegacao() {
@@ -52,7 +64,7 @@ public class Navega extends Inicia {
 
 			Navega.Espera();
 
-			System.out.println("A url da noticia " + "" + numero + "" + " é : \n " + lista.get(pagnum));
+			System.out.println("A url da noticia " + "" + numero + "" + " Ã© : \n " + lista.get(pagnum));
 
 			Navega.Espera();
 
@@ -61,7 +73,7 @@ public class Navega extends Inicia {
 			// Extrai o titulo
 
 			String tituloUm = driver.findElement(By.className(tituloXpath)).getText();
-			System.out.println("O titulo " + "" + numero + "" + " é : \n " + tituloUm);
+			System.out.println("O titulo " + "" + numero + "" + " Ã© : \n " + tituloUm);
 
 			System.out.println();
 			System.out.println();
@@ -69,7 +81,7 @@ public class Navega extends Inicia {
 			// Extrai o subtitulo
 
 			String subUm = driver.findElement(By.className(subXpath)).getText();
-			System.out.println("O subtitulo " + "" + numero + "" + " é : \n " + subUm);
+			System.out.println("O subtitulo " + "" + numero + "" + " Ã© : \n " + subUm);
 			System.out.println();
 			System.out.println();
 			Navega.Espera();
@@ -77,7 +89,7 @@ public class Navega extends Inicia {
 
 			String autorUm = driver.findElement(By.className(autorXpath)).getText();
 			autorUm = autorUm.substring(4, autorUm.length());
-			System.out.println("O autor da noticia " + "" + numero + "" + " é : \n " + autorUm);
+			System.out.println("O autor da noticia " + "" + numero + "" + " Ã© : \n " + autorUm);
 			System.out.println();
 			System.out.println();
 			Navega.Espera();
@@ -93,14 +105,14 @@ public class Navega extends Inicia {
 
 			dataUm = dateTime.format(targetFormat);
 
-			System.out.println("A data da noticia " + "" + numero + "" + " é : \n " + dataUm);
+			System.out.println("A data da noticia " + "" + numero + "" + " Ã© : \n " + dataUm);
 			System.out.println();
 			System.out.println();
 			Navega.Espera();
-			// Extrai o conteúdo da noticia
+			// Extrai o conteÃºdo da noticia
 			try {
 				String conteudoUm = driver.findElement(By.className(conteudoXpath)).getText();
-				System.out.println("O conteúdo da noticia " + "" + numero + "" + " é : \n " + conteudoUm);
+				System.out.println("O conteÃºdo da noticia " + "" + numero + "" + " Ã© : \n " + conteudoUm);
 
 			} catch (Exception e) {
 
@@ -117,7 +129,7 @@ public class Navega extends Inicia {
 			pagnum = pagnum + 1;
 
 		} catch (Exception e2) {
-			System.out.println("Elemento indisponível na página");
+			System.out.println("Elemento indisponÃ­vel na pÃ¡gina");
 			pagnum = pagnum +1;
 			numero = numero + 1;
 
