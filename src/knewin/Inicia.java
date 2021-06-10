@@ -57,7 +57,7 @@ public class Inicia {
 		}
 		
 		pagnum = 0;
-		System.out.println("Links salvos, aguarde atÃ© que a extraÃ§Ã£o das informaÃ§Ãµes de todos os links \n seja concluÃ­da, pode demorar alguns minutos \n ");
+		System.out.println("Links salvos, aguarde ate que a extracao das informacoes de todos os links \n seja concluida, pode demorar alguns minutos \n ");
 		
 		// irÃ¡ criar um arquivo txt na pasta do projeto /Bot__Selenium,
 		// onde serÃ£o armazenados todas as informaÃ§Ãµes que seriam impressas no console
@@ -78,6 +78,6 @@ public class Inicia {
 		PrintStream consoleStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
 		System.setOut(consoleStream);
 
-		System.out.println("Processo concluÃ­do, verificar arquivo out.txt na pasta \\Bot__Selenium");
+		System.out.println("Processo concluido, verificar arquivo out.txt na pasta \\Bot__Selenium");
 	}
 }
